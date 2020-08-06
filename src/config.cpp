@@ -20,17 +20,6 @@ namespace utils
             if (buffer[0] == ';' || buffer[0] == ' ' || buffer[0] == '#' || buffer[0] == '\t' || buffer[0] == '\n')
                 continue;
 
-            // while(buffer.length()>0)
-            // {
-            //     if(*buffer.rbegin() == 10 || *buffer.rbegin() == 13 || *buffer.rbegin() == 32)
-            //     {
-            //         *buffer.rbegin() = 0;
-            //     }else
-            //     {
-            //         break;
-            //     }   
-            // }
-
             if(*buffer.begin() == 0)
                 continue;
             if(*buffer.begin() == '[')
