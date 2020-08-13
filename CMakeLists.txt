@@ -17,14 +17,20 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 set(SOURCE_DIRECTORY ${PROJECT_SOURCE_DIR}/src)
+set(LOG_SOURCE_DIRECTORY ${PROJECT_SOURCE_DIR}/log)
+
+include_directories(${PROJECT_SOURCE_DIR}/threadPool)
 
 list(APPEND source
      ${SOURCE_DIRECTORY}/config.h
      ${SOURCE_DIRECTORY}/config.cpp
     )
+add_subdirectory(threadPool)
+add_subdirectory(log)
+
 add_library(config ${source})
 
 if(ENABLE_TEST)
 add_executable(Test test/main.cxx)
-target_link_libraries(Test config)
+target_link_libraries(Test config Log)
 endif()
